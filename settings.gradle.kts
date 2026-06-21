@@ -30,5 +30,6 @@ dependencyResolutionManagement {
 
 include(":androidApp")
 include(":sharedLogic")
-include(":sharedUI")
 include(":core:decompose")
+include(":root:api")
+include(":root:impl")

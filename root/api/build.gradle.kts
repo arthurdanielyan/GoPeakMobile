@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.androidLint)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -12,7 +13,7 @@ kotlin {
     // which platforms this KMP module supports.
     // See: https://kotlinlang.org/docs/multiplatform-discover-project.html#targets
     android {
-        namespace = "com.danielyan.gopeak.decompose"
+        namespace = "com.danielyan.gopeak.root.api"
         compileSdk {
             version = release(libs.versions.android.compileSdk.get().toInt())
         }
@@ -57,18 +58,10 @@ kotlin {
     // See: https://kotlinlang.org/docs/multiplatform-hierarchy.html
     sourceSets {
 
-        androidMain {
-            dependencies {
-                // Add Android-specific dependencies here. Note that this source set depends on
-                // commonMain by default and will correctly pull the Android artifacts of any KMP
-                // dependencies declared in commonMain.
-            }
-        }
-
         commonMain {
             dependencies {
-                api(libs.decompose.core)
-                api(libs.kotlinx.coroutines.core)
+                implementation(projects.core.decompose)
+                implementation(libs.kotlinx.serialization.json)
             }
         }
     }

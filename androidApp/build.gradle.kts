@@ -8,11 +8,10 @@ plugins {
 
 kotlin {
     compilerOptions {
-        jvmTarget = JvmTarget.JVM_11
+        jvmTarget = JvmTarget.JVM_17
     }
 }
 dependencies {
-    implementation(projects.sharedUI)
 
     implementation(libs.androidx.activity.compose)
 
@@ -42,7 +41,28 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+}
+
+dependencies {
+
+    implementation(libs.compose.uiToolingPreview)
+    implementation(libs.compose.runtime)
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.components.resources)
+    implementation(libs.compose.uiToolingPreview)
+    implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.splashscreen)
+
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+
+    implementation(projects.sharedLogic)
+
+    implementation(projects.core.decompose)
+    implementation(projects.root.impl)
 }
