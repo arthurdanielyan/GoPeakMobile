@@ -28,8 +28,11 @@ dependencyResolutionManagement {
     }
 }
 
+includeBuild("gradlePlugins")
+
 include(":androidApp")
 include(":sharedLogic")
 include(":core:decompose")
+include(":core:designSystem")
 include(":root:api")
 include(":root:impl")

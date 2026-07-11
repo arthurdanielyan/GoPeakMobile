@@ -36,6 +36,7 @@ kotlin {
         }
 
         androidMain.dependencies {
+            implementation(projects.core.designSystem)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
             implementation(libs.compose.ui)

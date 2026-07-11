@@ -1,4 +1,5 @@
 import SwiftUI
+import GoPeakDesignSystem
 import SharedLogic
 
 /// SwiftUI counterpart of `RootScreen` (Jetpack Compose) in
@@ -51,16 +52,21 @@ private final class RootObservableModel: ObservableObject {
 private struct NotYetImplementedView: View {
     var body: some View {
         ZStack {
-            Color(.systemBackground)
+            Color(GoPeakTheme.colors.background)
                 .ignoresSafeArea()
             Text("Not Yet Implemented")
-                .font(.largeTitle.weight(.bold))
-                .foregroundColor(.primary)
+                .goPeakTextStyle(GoPeakTheme.typography.heading)
+                .foregroundColor(GoPeakTheme.colors.onBackground)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
-#Preview {
-    NotYetImplementedView()
+
+#Preview("NotYetImplementedView – Dark") {
+    NotYetImplementedView().preferredColorScheme(.dark)
+}
+
+#Preview("NotYetImplementedView – Light") {
+    NotYetImplementedView().preferredColorScheme(.light)
 }

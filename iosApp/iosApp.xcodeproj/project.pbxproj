@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A9995CD03002C81F00E558B9 /* GoPeakDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = A9995CCF3002C81F00E558B9 /* GoPeakDesignSystem */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		DEF2AD4188B92ECE2405D13E /* GoPeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoPeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -41,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9995CD03002C81F00E558B9 /* GoPeakDesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,7 @@
 			);
 			name = iosApp;
 			packageProductDependencies = (
+				A9995CCF3002C81F00E558B9 /* GoPeakDesignSystem */,
 			);
 			productName = iosApp;
 			productReference = DEF2AD4188B92ECE2405D13E /* GoPeak.app */;
@@ -114,6 +120,9 @@
 			);
 			mainGroup = 91CE07DA5465D6DCD473E295;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A9995CCE3002C81F00E558B9 /* XCLocalSwiftPackageReference "DesignSystem" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 78B441A642AE59B5468C4523 /* Products */;
 			projectDirPath = "";
@@ -368,6 +377,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		A9995CCE3002C81F00E558B9 /* XCLocalSwiftPackageReference "DesignSystem" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = DesignSystem;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A9995CCF3002C81F00E558B9 /* GoPeakDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GoPeakDesignSystem;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 408DA31186357EB8141D0D6D /* Project object */;
 }

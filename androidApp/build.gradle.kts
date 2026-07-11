@@ -64,5 +64,6 @@ dependencies {
     implementation(projects.sharedLogic)
 
     implementation(projects.core.decompose)
+    implementation(projects.core.designSystem)
     implementation(projects.root.impl)
 }
