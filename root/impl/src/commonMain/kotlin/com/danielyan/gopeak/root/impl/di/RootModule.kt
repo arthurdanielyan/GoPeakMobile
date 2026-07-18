@@ -7,6 +7,8 @@ import org.koin.dsl.module
 val rootModule = module {
 
     factory<RootComponent.Factory> {
-        RootComponentFactory()
+        RootComponentFactory(
+            onboardingComponentFactory = get(),
+        )
     }
 }

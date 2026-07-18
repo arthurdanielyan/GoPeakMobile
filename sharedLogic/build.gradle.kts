@@ -17,6 +17,7 @@ kotlin {
             // Exported so the generated Obj-C/Swift header exposes the root component,
             // its screen configs and the Decompose Value/ChildStack types to SwiftUI.
             export(projects.root.api)
+            export(projects.featureOnboarding.api)
             export(projects.core.decompose)
             export(libs.decompose.core)
         }
@@ -42,9 +43,11 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.koin.core)
             implementation(projects.root.impl)
+            implementation(projects.featureOnboarding.impl)
 
             // `api` (not `implementation`) so these can be `export`ed to the iOS framework.
             api(projects.root.api)
+            api(projects.featureOnboarding.api)
             api(projects.core.decompose)
             api(libs.decompose.core)
         }

@@ -1,6 +1,8 @@
 package com.danielyan.gopeak.designsystem.theme
 
+import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
@@ -39,6 +41,7 @@ fun GoPeakTheme(
         LocalGoPeakColors provides colors,
         LocalGoPeakTypography provides GoPeakDefaultTypography,
         LocalGoPeakShapes provides GoPeakDefaultShapes,
+        LocalIndication provides ripple(),
         content = content,
     )
 }

@@ -22,17 +22,15 @@ struct RootView: View {
         StackView(
             stackValue: ObservableValue(model.holder.component.childStack),
             onBack: model.holder.component.onBack
-        ) { component in
-            // Switch over the active child *component*, like Kotlin's
-            // `when (it.instance) { is LoginComponent -> LoginScreen(it) ... }`.
-            // Real child components don't exist yet, so everything is the placeholder.
-            switch component {
-            // case let login as LoginComponent:       LoginScreen(login)
-            // case let onboarding as OnboardingComponent: OnboardingScreen(onboarding)
-            // case let main as MainComponent:          MainScreen(main)
-            default:
-                NotYetImplementedView()
-            }
+        ) { childComponent in
+            
+            switch childComponent {
+                case let onboardingComponent as OnboardingComponent:
+                    OnboardingScreen(component: onboardingComponent)
+                    
+                default:
+                    NotYetImplementedView()
+                }
         }
     }
 }

@@ -65,5 +65,5 @@ dependencies {
 
     implementation(projects.core.decompose)
     implementation(projects.core.designSystem)
-    implementation(projects.root.impl)
+    implementation(projects.root.ui)
 }

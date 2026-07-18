@@ -11,7 +11,7 @@ import com.danielyan.gopeak.decompose.AppRouterImpl
 import com.danielyan.gopeak.decompose.DefaultAppComponentContext
 import com.danielyan.gopeak.designsystem.theme.GoPeakTheme
 import com.danielyan.gopeak.root.api.RootComponent
-import com.danielyan.gopeak.root.impl.RootScreen
+import com.danielyan.gopeak.root.ui.RootScreen
 import org.koin.android.ext.android.inject
 
 class MainActivity : ComponentActivity() {

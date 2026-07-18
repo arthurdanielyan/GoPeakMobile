@@ -10,7 +10,7 @@ kotlin {
     iosSimulatorArm64()
 
     androidLibrary {
-        namespace = "com.danielyan.gopeak.root.impl"
+        namespace = "com.danielyan.gopeak.featureOnboarding.impl"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
 
@@ -21,14 +21,10 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            api(projects.root.api)
+            api(projects.featureOnboarding.api)
             implementation(projects.core.decompose)
 
-            // Needed to build the onboarding child component in RootComponentImpl's
-            // childFactory (shared across Android and iOS).
-            implementation(projects.featureOnboarding.api)
-
-            // Used by commonMain DI (di/RootModule.kt), so it must live in commonMain
+            // Used by commonMain DI (di/OnboardingModule.kt), so it must live in commonMain
             // for the iOS targets to resolve it as well.
             implementation(libs.koin.core)
         }
