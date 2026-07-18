@@ -162,6 +162,8 @@ private struct GoPeakButtonBase: View {
     let verticalPadding: CGFloat
     let action: () -> Void
 
+    @Environment(\.goPeakButtonFullWidth) private var isFullWidth
+
     var body: some View {
         Button(action: action) {
             HStack(spacing: 8) {
@@ -176,6 +178,7 @@ private struct GoPeakButtonBase: View {
             .foregroundStyle(contentColor)
             .padding(.horizontal, horizontalPadding)
             .padding(.vertical, verticalPadding)
+            .frame(maxWidth: isFullWidth ? .infinity : nil)
             .background {
                 if let fill {
                     GoPeakTheme.shapes.rounded(GoPeakTheme.shapes.small).fill(fill)
@@ -202,6 +205,28 @@ private struct GoPeakPressStyle: ButtonStyle {
     }
 }
 
+// MARK: - Full-width modifier
+
+private struct GoPeakButtonFullWidthKey: EnvironmentKey {
+    static let defaultValue = false
+}
+
+extension EnvironmentValues {
+    var goPeakButtonFullWidth: Bool {
+        get { self[GoPeakButtonFullWidthKey.self] }
+        set { self[GoPeakButtonFullWidthKey.self] = newValue }
+    }
+}
+
+public extension View {
+    /// Makes the GoPeak buttons in this subtree stretch to fill the available width — the SwiftUI
+    /// equivalent of Compose's `Modifier.fillMaxWidth()`. Apply it to a single button or to any
+    /// container to affect every GoPeak button inside it.
+    func goPeakButtonFullWidth(_ enabled: Bool = true) -> some View {
+        environment(\.goPeakButtonFullWidth, enabled)
+    }
+}
+
 // MARK: - Previews
 
 private struct ButtonsGallery: View {
@@ -212,7 +237,9 @@ private struct ButtonsGallery: View {
                 spacing: 18,
             ) {
                 LargePrimaryButton("Get Started", icon: .trailing("arrow.right")) {}
+                    .goPeakButtonFullWidth()
                 LargeSecondaryButton("Watch Demo") {}
+                    .goPeakButtonFullWidth()
                 PrimaryButton("Continue", icon: .trailing("arrow.right")) {}
                 SecondaryButton("Login") {}
                 TertiaryButton("Skip", icon: .trailing("chevron.forward")) {}
