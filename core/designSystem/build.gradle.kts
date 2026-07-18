@@ -9,11 +9,11 @@ android {
 }
 
 dependencies {
-    implementation(libs.compose.runtime)
-    implementation(libs.compose.foundation)
-    implementation(libs.compose.material3)
-    implementation(libs.compose.ui)
-    implementation(libs.compose.uiToolingPreview)
-    debugImplementation(libs.compose.uiTooling)
+    api(libs.compose.runtime)
+    api(libs.compose.foundation)
+    api(libs.compose.material3)
+    api(libs.compose.ui)
+    api(libs.compose.uiToolingPreview)
+    debugApi(libs.compose.uiTooling)
 }
 
