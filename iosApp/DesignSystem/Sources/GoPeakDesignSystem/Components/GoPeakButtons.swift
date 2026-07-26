@@ -14,12 +14,12 @@ public enum GoPeakButtonIcon: Sendable {
 // MARK: - Public buttons
 
 /// High-emphasis brand CTA (filled). Optional single icon.
-public struct LargePrimaryButton: View {
-    private let title: String
+public struct BrandPrimaryButton: View {
+    private let title: LocalizedStringKey
     private let icon: GoPeakButtonIcon
     private let action: () -> Void
 
-    public init(_ title: String, icon: GoPeakButtonIcon = .none, action: @escaping () -> Void) {
+    public init(_ title: LocalizedStringKey, icon: GoPeakButtonIcon = .none, action: @escaping () -> Void) {
         self.title = title
         self.icon = icon
         self.action = action
@@ -41,12 +41,12 @@ public struct LargePrimaryButton: View {
 }
 
 /// High-emphasis alternative (outlined). Optional single icon.
-public struct LargeSecondaryButton: View {
-    private let title: String
+public struct BrandSecondaryButton: View {
+    private let title: LocalizedStringKey
     private let icon: GoPeakButtonIcon
     private let action: () -> Void
 
-    public init(_ title: String, icon: GoPeakButtonIcon = .none, action: @escaping () -> Void) {
+    public init(_ title: LocalizedStringKey, icon: GoPeakButtonIcon = .none, action: @escaping () -> Void) {
         self.title = title
         self.icon = icon
         self.action = action
@@ -69,11 +69,11 @@ public struct LargeSecondaryButton: View {
 
 /// Compact primary action (filled peach). Supports a leading OR trailing icon.
 public struct PrimaryButton: View {
-    private let title: String
+    private let title: LocalizedStringKey
     private let icon: GoPeakButtonIcon
     private let action: () -> Void
 
-    public init(_ title: String, icon: GoPeakButtonIcon = .none, action: @escaping () -> Void) {
+    public init(_ title: LocalizedStringKey, icon: GoPeakButtonIcon = .none, action: @escaping () -> Void) {
         self.title = title
         self.icon = icon
         self.action = action
@@ -87,7 +87,7 @@ public struct PrimaryButton: View {
             contentColor: GoPeakTheme.colors.onPrimary,
             fill: GoPeakTheme.colors.primary,
             border: nil,
-            horizontalPadding: 32,
+            horizontalPadding: 16,
             verticalPadding: 8,
             action: action
         )
@@ -96,11 +96,11 @@ public struct PrimaryButton: View {
 
 /// Compact low-emphasis action (text only, primary-colored). Supports a leading OR trailing icon.
 public struct SecondaryButton: View {
-    private let title: String
+    private let title: LocalizedStringKey
     private let icon: GoPeakButtonIcon
     private let action: () -> Void
 
-    public init(_ title: String, icon: GoPeakButtonIcon = .none, action: @escaping () -> Void) {
+    public init(_ title: LocalizedStringKey, icon: GoPeakButtonIcon = .none, action: @escaping () -> Void) {
         self.title = title
         self.icon = icon
         self.action = action
@@ -123,11 +123,11 @@ public struct SecondaryButton: View {
 
 /// Lowest-emphasis action (text only, muted). No icon (matches Android `TertiaryButton`).
 public struct TertiaryButton: View {
-    private let title: String
+    private let title: LocalizedStringKey
     private let icon: GoPeakButtonIcon
     private let action: () -> Void
 
-    public init(_ title: String, icon: GoPeakButtonIcon = .none, action: @escaping () -> Void) {
+    public init(_ title: LocalizedStringKey, icon: GoPeakButtonIcon = .none, action: @escaping () -> Void) {
         self.title = title
         self.icon = icon
         self.action = action
@@ -152,7 +152,7 @@ public struct TertiaryButton: View {
 
 /// Internal button impl. Public buttons delegate here (parity with Android's `TextIconButton`).
 private struct GoPeakButtonBase: View {
-    let title: String
+    let title: LocalizedStringKey
     let icon: GoPeakButtonIcon
     let textStyle: GoPeakTextStyle
     let contentColor: Color
@@ -236,9 +236,9 @@ private struct ButtonsGallery: View {
                 alignment: .leading,
                 spacing: 18,
             ) {
-                LargePrimaryButton("Get Started", icon: .trailing("arrow.right")) {}
+                BrandPrimaryButton("Get Started", icon: .trailing("arrow.right")) {}
                     .goPeakButtonFullWidth()
-                LargeSecondaryButton("Watch Demo") {}
+                BrandSecondaryButton("Watch Demo") {}
                     .goPeakButtonFullWidth()
                 PrimaryButton("Continue", icon: .trailing("arrow.right")) {}
                 SecondaryButton("Login") {}

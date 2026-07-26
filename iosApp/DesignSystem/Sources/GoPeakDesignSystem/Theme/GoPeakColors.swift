@@ -8,9 +8,13 @@ import SwiftUI
 /// `core/designSystem/.../theme/GoPeakColors.kt` (light / dark).
 public struct GoPeakColors: Sendable {
 
-    /// Expressive orange — the highest-emphasis brand CTA (LargePrimaryButton).
+    /// Expressive orange — the highest-emphasis brand CTA (BrandPrimaryButton).
     public let brand = Color(light: 0xFFAC8A, dark: 0xFF6B00)
     public let onBrand = Color(light: 0x351000, dark: 0x572000)
+
+    /// Brand-toned emphasis color for foreground/text on `background` — legible in both themes
+    /// (primary in light, brand in dark). Use instead of `brand` (a fill role) for brand-colored text.
+    public let brandEmphasis = Color(light: 0xA04100, dark: 0xFF6B00)
 
     /// Peach — the primary action color (PrimaryButton, SecondaryButton label).
     public let primary = Color(light: 0xA04100, dark: 0xFFB693)
@@ -31,7 +35,17 @@ public struct GoPeakColors: Sendable {
     public let surfaceVariant = Color(light: 0xF0E4DD, dark: 0x41312A)
     public let onSurfaceVariant = Color(light: 0x5A4136, dark: 0xE2BFB0)
 
-    public let outline = Color(light: 0xB8A196, dark: 0x5A4136)
+    public let outline = Color(light: 0x85736B, dark: 0x5A4136)
+
+    /// Vertical scrim that fades content into the background (background @ 40% → opaque) —
+    /// the SwiftUI counterpart of Android's `dim` brush. Resolves light/dark via `background`.
+    public var dim: LinearGradient {
+        LinearGradient(
+            colors: [background.opacity(0.4), background],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+    }
 
     public init() {}
 }

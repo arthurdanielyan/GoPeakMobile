@@ -13,6 +13,9 @@ let package = Package(
         )
     ],
     targets: [
-        .target(name: "GoPeakDesignSystem")
+        .target(
+            name: "GoPeakDesignSystem",
+            resources: [.process("Resources/Media.xcassets")]
+        )
     ]
 )

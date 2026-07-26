@@ -2,6 +2,8 @@ package com.danielyan.gopeak.designsystem.theme
 
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MotionScheme
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -37,11 +39,15 @@ fun GoPeakTheme(
     content: @Composable () -> Unit,
 ) {
     val colors = if (darkTheme) GoPeakDarkColors else GoPeakLightColors
-    CompositionLocalProvider(
-        LocalGoPeakColors provides colors,
-        LocalGoPeakTypography provides GoPeakDefaultTypography,
-        LocalGoPeakShapes provides GoPeakDefaultShapes,
-        LocalIndication provides ripple(),
-        content = content,
-    )
+    MaterialTheme(
+        motionScheme = MotionScheme.expressive()
+    ) {
+        CompositionLocalProvider(
+            LocalGoPeakColors provides colors,
+            LocalGoPeakTypography provides GoPeakDefaultTypography,
+            LocalGoPeakShapes provides GoPeakDefaultShapes,
+            LocalIndication provides ripple(),
+            content = content,
+        )
+    }
 }

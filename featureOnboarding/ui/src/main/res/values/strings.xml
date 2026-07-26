@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding1_app_description">ZERO-FRICTION PERFORMANCE</string>
+    <string name="onboarding1_title_1">Reach Your</string>
+    <string name="onboarding1_title_2">Peak</string>
+    <string name="onboarding1_description">High-performance tracking for those who value precision, momentum, and clarity in every rep.</string>
+    <string name="onboarding1_proceed_btn">Get Started</string>
+    <string name="onboarding_skip">Skip</string>
+    <string name="ft_live_tracking">Live Tracking</string>
+    <string name="ft_growth">Growth Visualizer</string>
+
+    <string name="back">Back</string>
+    <string name="continue_btn">Continue</string>
+</resources>

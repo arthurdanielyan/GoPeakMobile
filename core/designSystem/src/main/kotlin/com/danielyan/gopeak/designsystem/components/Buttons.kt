@@ -68,7 +68,7 @@ private val ButtonIcon.contentDescription: String?
 
 /** High-emphasis brand CTA (filled orange). Optional single icon. */
 @Composable
-fun LargePrimaryButton(
+fun BrandPrimaryButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -93,7 +93,7 @@ fun LargePrimaryButton(
 
 /** High-emphasis alternative (outlined). Optional single icon. */
 @Composable
-fun LargeSecondaryButton(
+fun BrandSecondaryButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -132,7 +132,7 @@ fun PrimaryButton(
         contentColor = GoPeakTheme.colors.onPrimary,
         backgroundColor = GoPeakTheme.colors.primary,
         shape = GoPeakTheme.shapes.small,
-        contentPadding = PaddingValues(horizontal = 32.dp, vertical = 8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
         leadingIcon = icon.leading,
         trailingIcon = icon.trailing,
         iconContentDescription = icon.contentDescription,
@@ -261,13 +261,13 @@ private fun ButtonsPreview() {
                 .padding(24.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            LargePrimaryButton(
+            BrandPrimaryButton(
                 modifier = Modifier
                     .fillMaxWidth(),
                 text = "Get Started",
                 onClick = {}
             )
-            LargeSecondaryButton(
+            BrandSecondaryButton(
                 modifier = Modifier
                     .fillMaxWidth(),
                 text = "Watch Demo",

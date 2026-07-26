@@ -1,6 +1,7 @@
 package com.danielyan.gopeak.designsystem.theme
 
 import androidx.compose.runtime.Immutable
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 /**
@@ -13,6 +14,11 @@ data class GoPeakColors(
     /** Expressive orange — the highest-emphasis brand CTA (LargePrimaryButton). */
     val brand: Color,
     val onBrand: Color,
+    /**
+     * Brand-toned emphasis color for foreground/text on [background] — legible in both themes
+     * (primary in light, brand in dark). Use instead of [brand] (a fill role) for brand-colored text.
+     */
+    val brandEmphasis: Color,
     /** Peach — the primary action color (PrimaryButton, SecondaryButton label). */
     val primary: Color,
     val onPrimary: Color,
@@ -21,6 +27,7 @@ data class GoPeakColors(
     val onAccent: Color,
     /** [accent] at reduced opacity — background behind [accent]-colored content. */
     val accentContainer: Color,
+    val dim: Brush,
     val background: Color,
     val onBackground: Color,
     val surface: Color,
@@ -34,11 +41,18 @@ data class GoPeakColors(
 val GoPeakDarkColors = GoPeakColors(
     brand = Color(0xFFFF6B00),
     onBrand = Color(0xFF572000),
+    brandEmphasis = Color(0xFFFF6B00),
     primary = Color(0xFFFFB693),
     onPrimary = Color(0xFF561F00),
     accent = Color(0xFF9CCAFF),
     onAccent = Color(0xFF0A2E4D),
     accentContainer = Color(0xFF9CCAFF).copy(alpha = 0.2f),
+    dim = Brush.verticalGradient(
+        colors = listOf(
+            Color(0x661D100A),
+            Color(0xFF1D100A),
+        ),
+    ),
     background = Color(0xFF1D100A),
     onBackground = Color(0xFFF8DDD2),
     surface = Color(0xFF261812),
@@ -53,17 +67,24 @@ val GoPeakDarkColors = GoPeakColors(
 val GoPeakLightColors = GoPeakColors(
     brand = Color(0xFFFFAC8A),
     onBrand = Color(0xFF351000),
+    brandEmphasis = Color(0xFFA04100),
     primary = Color(0xFFA04100),
     onPrimary = Color(0xFFFFFFFF),
     accent = Color(0xFF00639A),
     onAccent = Color(0xFF0A2E4D),
     accentContainer = Color(0xFFCEE5FF).copy(alpha = 0.5f),
+    dim = Brush.verticalGradient(
+        colors = listOf(
+            Color(0x66FFF8F6),
+            Color(0XFFFFF8F6),
+        )
+    ),
     background = Color(0xFFFFF8F5),
     onBackground = Color(0xFF231A14),
     surface = Color(0xFFFFF8F5),
     onSurface = Color(0xFF1D100A),
     surfaceVariant = Color(0xFFF0E4DD),
     onSurfaceVariant = Color(0xFF5A4136),
-    outline = Color(0xFFB8A196),
+    outline = Color(0xFF85736B),
     isDark = false,
 )
